@@ -133,3 +133,36 @@ class HashMap {
     return entriesArray;
   }
 }
+
+// Optional extra credit: HashSet class (keys only, no values)
+class HashSet {
+  constructor(initialCapacity = 16, loadFactor = 0.75) {
+    this.map = new HashMap(initialCapacity, loadFactor);
+  }
+
+  add(key) {
+    this.map.set(key, true);
+  }
+
+  has(key) {
+    return this.map.has(key);
+  }
+
+  remove(key) {
+    return this.map.remove(key);
+  }
+
+  clear() {
+    this.map.clear();
+  }
+
+  size() {
+    return this.map.length();
+  }
+
+  keys() {
+    return this.map.keys();
+  }
+}
+
+export { HashMap, HashSet };
