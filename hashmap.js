@@ -16,5 +16,32 @@ class HashMap {
     return hashCode;
   }
 
+  // 🧩 Resize / Rehash function when load factor is exceeded
+  resize() {
+    const oldBuckets = this.buckets;
+    this.capacity *= 2;
+    this.buckets = new Array(this.capacity).fill(null).map(() => []);
+    this.sizeCount = 0;
+
+    for (const bucket of oldBuckets) {
+      for (const [key, value] of bucket) {
+        this.set(key, value);
+      }
+    }
+  }
+
+  // 🪄 Add or update a key-value pair
+  set(key, value) {
+    const index = this.hash(key);
+    const bucket = this.buckets[index];
+
+    // Check if key already exists — overwrite value
+    for (const pair of bucket) {
+      if (pair[0] === key) {
+        pair[1] = value;
+        return;
+      }
+    }
+  }
 
 }
