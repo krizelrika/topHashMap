@@ -89,5 +89,47 @@ class HashMap {
     return false;
   }
 
+  // 📏 Return number of stored keys
+  length() {
+    return this.sizeCount;
+  }
 
+  // 🧹 Clear all entries
+  clear() {
+    this.buckets = new Array(this.capacity).fill(null).map(() => []);
+    this.sizeCount = 0;
+  }
+
+  // 🗝️ Return array of all keys
+  keys() {
+    const keysArray = [];
+    for (const bucket of this.buckets) {
+      for (const [key] of bucket) {
+        keysArray.push(key);
+      }
+    }
+    return keysArray;
+  }
+
+  // 🎁 Return array of all values
+  values() {
+    const valuesArray = [];
+    for (const bucket of this.buckets) {
+      for (const [, value] of bucket) {
+        valuesArray.push(value);
+      }
+    }
+    return valuesArray;
+  }
+
+  // 🧮 Return array of [key, value] pairs
+  entries() {
+    const entriesArray = [];
+    for (const bucket of this.buckets) {
+      for (const [key, value] of bucket) {
+        entriesArray.push([key, value]);
+      }
+    }
+    return entriesArray;
+  }
 }
