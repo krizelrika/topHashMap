@@ -42,6 +42,36 @@ class HashMap {
         return;
       }
     }
+
+    // Add new key-value pair
+    bucket.push([key, value]);
+    this.sizeCount++;
+
+    // Check load factor — resize if exceeded
+    if (this.sizeCount / this.capacity > this.loadFactor) {
+      this.resize();
+    }
+  }
+
+  // 🔍 Get value by key
+  get(key) {
+    const index = this.hash(key);
+    const bucket = this.buckets[index];
+
+    for (const pair of bucket) {
+      if (pair[0] === key) {
+        return pair[1];
+      }
+    }
+
+    return null;
+  }
+
+  // ✅ Check if key exists
+  has(key) {
+    const index = this.hash(key);
+    const bucket = this.buckets[index];
+    return bucket.some(([k]) => k === key);
   }
 
 }
