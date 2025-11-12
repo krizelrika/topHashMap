@@ -74,4 +74,20 @@ class HashMap {
     return bucket.some(([k]) => k === key);
   }
 
+  // ❌ Remove key-value pair
+  remove(key) {
+    const index = this.hash(key);
+    const bucket = this.buckets[index];
+
+    const pairIndex = bucket.findIndex(([k]) => k === key);
+    if (pairIndex !== -1) {
+      bucket.splice(pairIndex, 1);
+      this.sizeCount--;
+      return true;
+    }
+
+    return false;
+  }
+
+
 }
