@@ -26,3 +26,14 @@ It demonstrates how hash maps work internally — using hashing, bucket arrays, 
 ## ⭐ Extra Credit
 - Automatic resizing when the load factor exceeds 0.75.
 - HashSet class — built using the same logic, but stores only keys (no values).
+
+## 🧰 Tech Stack
+- JavaScript (ES6+)
+- Node.js for running tests
+- Vite / VSCode (optional dev tools)
+
+## ✨ Key Takeaways
+- Learned to design a data structure that balances speed and memory.
+- Understood the importance of collision handling and hash uniformity.
+- Practiced resizing (rehashing) logic dynamically.
+- Improved code readability and modular design.
